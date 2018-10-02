@@ -5,3 +5,5 @@
 + 在配置文件`config.py`配置flask的配置信息
 + 在配置文件`user_config.py`中配置**用户名**、**密码**、**文件根目录**
 + 运行`python web_file_manager.py`
+
+**因为github上传不了文件, 暂且搁置**
