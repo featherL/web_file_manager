@@ -6,7 +6,7 @@ import os
 
 # 配置{
 
-USERNAME = 'feather'  # 登录用户名
+USERNAME = 'admin'  # 登录用户名
 PASSWORD = '123456'  # 登录密码
 
 HOME_PATH = '/home/feather/file_manager_home'  # 文件管理的根目录
