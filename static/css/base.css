@@ -1,0 +1,17 @@
+body{
+    background: #f3f3f3;
+}
+
+.main{
+    background: #fff;
+    width: 1000px;
+    margin: 50px auto;
+    overflow: hidden;
+    padding: 10px
+}
+
+.back-to-top{
+    position:fixed;
+    right: 50px;
+    bottom: 50px;
+}

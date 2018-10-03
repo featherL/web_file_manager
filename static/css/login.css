@@ -1,0 +1,17 @@
+.form-container{
+    width: 50%;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.main h2{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.form-control-static p{
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight:700;
+}
