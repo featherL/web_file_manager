@@ -1,0 +1,424 @@
+ * Serving Flask app 'exts'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.6.182:9091
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+192.168.5.10 - - [06/Mar/2024 16:37:19] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 16:37:19] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 16:37:19] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 16:37:19] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.6.9 - - [06/Mar/2024 16:39:15] "[32mGET / HTTP/1.1[0m" 302 -
+192.168.6.9 - - [06/Mar/2024 16:39:15] "GET /login/ HTTP/1.1" 200 -
+192.168.6.9 - - [06/Mar/2024 16:39:15] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.6.9 - - [06/Mar/2024 16:39:15] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+115.198.149.181 - - [06/Mar/2024 16:39:33] "[32mGET / HTTP/1.1[0m" 302 -
+115.198.149.181 - - [06/Mar/2024 16:39:33] "GET /login/ HTTP/1.1" 200 -
+115.198.149.181 - - [06/Mar/2024 16:39:33] "GET /static/css/base.css HTTP/1.1" 200 -
+115.198.149.181 - - [06/Mar/2024 16:39:33] "GET /static/css/login.css HTTP/1.1" 200 -
+115.198.149.181 - - [06/Mar/2024 16:39:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.200.137 - - [06/Mar/2024 16:45:00] "GET /login/ HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 16:45:00] "GET /static/css/base.css HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 16:45:01] "GET /static/css/login.css HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 16:45:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.5.10 - - [06/Mar/2024 16:47:41] "[32mGET / HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 16:47:41] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 16:47:41] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 16:47:41] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 16:47:59] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 16:47:59] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 16:47:59] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 16:47:59] "GET /static/css/index.css HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 16:47:59] "GET /static/js/index.js HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 16:59:35] "GET / HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 16:59:35] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 16:59:35] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 16:59:36] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 16:59:40] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.200.137 - - [06/Mar/2024 16:59:44] "GET /login/ HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 16:59:44] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.200.137 - - [06/Mar/2024 16:59:44] "GET /login/ HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 16:59:45] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 16:59:45] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 16:59:59] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+192.168.200.137 - - [06/Mar/2024 17:00:00] "GET / HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 17:00:01] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:00:01] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:00:01] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:00:23] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.200.137 - - [06/Mar/2024 17:00:23] "GET /login/ HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 17:00:24] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:00:24] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:00:52] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+192.168.200.137 - - [06/Mar/2024 17:00:53] "GET / HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 17:00:54] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:00:54] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:00:54] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:01:03] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.200.137 - - [06/Mar/2024 17:01:04] "GET /login/ HTTP/1.1" 200 -
+192.168.200.137 - - [06/Mar/2024 17:01:05] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.200.137 - - [06/Mar/2024 17:01:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+密码文件
+密码文件
+密码文件
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+192.168.5.10 - - [06/Mar/2024 17:31:30] "[32mGET / HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 17:31:30] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:31:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:30] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:43] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 17:31:43] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:31:43] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:43] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:43] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:47] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:31:47] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:47] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:47] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:48] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:31:48] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:48] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:31:48] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:32:55] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:32:55] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:49] "GET /?path=/home/guoyuh/projects/plantform/user01 HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:41:49] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:49] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "GET /?path=/home/guoyuh/projects/plantform/user01 HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "GET /?path=/home/guoyuh/projects/plantform/user01 HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:50] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:51] "GET /?path=/home/guoyuh/projects/plantform/user01 HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:41:51] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:51] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:56] "GET /?path=/home/guoyuh/projects/plantform/user01 HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:41:56] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:56] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:41:56] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:42:49] "POST /api/mkdir/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:42:49] "GET /?path=/home/guoyuh/projects/plantform/user01 HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:42:49] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:42:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:42:49] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:42:53] "GET /?path=/home/guoyuh/projects/plantform/user01/subdir HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:42:53] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:42:53] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:42:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:44:36] "GET /?path=/home/guoyuh/projects/plantform/user01 HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:44:36] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:44:36] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:44:36] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:44:38] "GET /download/?file=/home/guoyuh/projects/plantform/user01/3.svg HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:44:53] "[32mGET /download HTTP/1.1[0m" 308 -
+192.168.5.10 - - [06/Mar/2024 17:44:53] "[32mGET /download/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 17:44:53] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:44:53] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:44:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:44:53] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:47:14] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:47:14] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:47:14] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:47:14] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:49:10] "[32mGET /download/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 17:49:10] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:49:10] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:49:10] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:49:10] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:49:20] "[32mGET /download/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 17:49:20] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:49:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:49:20] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:49:20] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:57:49] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 17:57:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:57:49] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 17:57:49] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:10:03] "[33mGET /api/remove HTTP/1.1[0m" 404 -
+192.168.5.10 - - [06/Mar/2024 18:55:23] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:55:23] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:55:23] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:55:23] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:55:26] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 18:55:26] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:55:26] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:55:26] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:55:42] "[32mGET / HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 18:55:42] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:55:42] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:55:42] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:56:54] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1488, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1466, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 111, in login
+    if check_credentials(username, password):
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 19, in check_credentials
+    file_username, file_password = line.strip().split(':')
+ValueError: not enough values to unpack (expected 2, got 1)
+192.168.5.10 - - [06/Mar/2024 18:56:54] "GET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:56:54] "GET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:56:54] "GET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:56:54] "[36mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:05] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 18:57:05] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:57:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:05] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:05] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:08] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 18:57:08] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 18:57:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:08] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:19] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1488, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1466, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 111, in login
+    if check_credentials(username, password):
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 19, in check_credentials
+    file_username, file_password = line.strip().split(':')
+ValueError: not enough values to unpack (expected 2, got 1)
+192.168.5.10 - - [06/Mar/2024 18:57:19] "[36mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:19] "[36mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:57:19] "[36mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:59:54] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1488, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1466, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 111, in login
+    if check_credentials(username, password):
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 19, in check_credentials
+    file_username, file_password = line.strip().split(':')
+ValueError: not enough values to unpack (expected 2, got 1)
+192.168.5.10 - - [06/Mar/2024 18:59:54] "[36mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:59:54] "[36mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 18:59:54] "[36mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+ * Detected change in '/home/guoyuh/projects/web_file_manager/web_file_manager copy.py', reloading
+密码文件
+密码文件
+密码文件
+密码文件
+密码文件
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+192.168.5.10 - - [06/Mar/2024 19:02:35] "[35m[1mPOST /login/ HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1488, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1466, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/guoyuh/.conda/envs/web/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 56, in login
+    if check_credentials(username, password):
+  File "/home/guoyuh/projects/web_file_manager/view_func.py", line 19, in check_credentials
+    file_username, file_password = line.strip().split(':')
+ValueError: not enough values to unpack (expected 2, got 1)
+192.168.5.10 - - [06/Mar/2024 19:02:35] "[36mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:02:35] "[36mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:02:35] "[36mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:04:12] "POST /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:04:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:04:12] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+密码文件
+密码文件
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+ * Detected change in '/home/guoyuh/projects/web_file_manager/view_func.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 107-094-970
+192.168.5.10 - - [06/Mar/2024 19:07:37] "POST /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:07:37] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:07:37] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:07:46] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [06/Mar/2024 19:07:46] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:07:46] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:07:46] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:07:46] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:11:34] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:11:34] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:11:34] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:11:34] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:14] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:12:14] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:14] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:14] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:15] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:20] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:12:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:20] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:12:20] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:14:19] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:14:19] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:14:19] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:14:19] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:28] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:15:29] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:29] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:29] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:53] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:15:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:53] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:53] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [06/Mar/2024 19:15:54] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+112.17.247.107 - - [06/Mar/2024 19:22:18] "[32mGET / HTTP/1.1[0m" 302 -
+112.17.247.107 - - [06/Mar/2024 19:22:18] "GET /login/ HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:22:19] "GET /static/css/base.css HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:22:19] "GET /static/css/login.css HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:22:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+112.17.247.107 - - [06/Mar/2024 19:22:56] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+112.17.247.107 - - [06/Mar/2024 19:22:56] "GET / HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:22:56] "GET /static/css/index.css HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:22:56] "GET /static/js/index.js HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:22:56] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+112.17.247.107 - - [06/Mar/2024 19:23:08] "GET /download/?file=/home/guoyuh/projects/plantform/user01/992C79B8.png HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:23:12] "GET /download/?file=/home/guoyuh/projects/plantform/user01/992C79B8.png HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 19:23:12] "GET /download/?file=/home/guoyuh/projects/plantform/user01/992C79B8.png HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:23:30] "[32mGET / HTTP/1.1[0m" 302 -
+117.136.111.2 - - [06/Mar/2024 19:23:30] "GET /login/ HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:23:30] "GET /static/css/base.css HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:23:30] "GET /static/css/login.css HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:23:37] "[32mGET / HTTP/1.1[0m" 302 -
+117.136.111.2 - - [06/Mar/2024 19:23:37] "GET /login/ HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:23:37] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+117.136.111.2 - - [06/Mar/2024 19:23:37] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+117.136.111.2 - - [06/Mar/2024 19:23:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+117.136.111.2 - - [06/Mar/2024 19:23:42] "[32mGET / HTTP/1.1[0m" 302 -
+117.136.111.2 - - [06/Mar/2024 19:23:42] "GET /login/ HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:23:42] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+117.136.111.2 - - [06/Mar/2024 19:23:42] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+117.136.111.2 - - [06/Mar/2024 19:24:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+117.136.111.2 - - [06/Mar/2024 19:24:34] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+117.136.111.2 - - [06/Mar/2024 19:24:34] "GET / HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:24:34] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+117.136.111.2 - - [06/Mar/2024 19:24:34] "GET /static/js/index.js HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:24:34] "GET /static/css/index.css HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:24:46] "GET /login/ HTTP/1.1" 200 -
+117.136.111.2 - - [06/Mar/2024 19:24:46] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+112.17.247.107 - - [06/Mar/2024 20:05:38] "GET /login/ HTTP/1.1" 200 -
+112.17.247.107 - - [06/Mar/2024 20:05:38] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+112.10.201.218 - - [07/Mar/2024 07:51:58] "[32mGET / HTTP/1.1[0m" 302 -
+112.10.201.218 - - [07/Mar/2024 07:51:58] "GET /login/ HTTP/1.1" 200 -
+112.10.201.218 - - [07/Mar/2024 07:51:58] "GET /static/css/base.css HTTP/1.1" 200 -
+112.10.201.218 - - [07/Mar/2024 07:51:58] "GET /static/css/login.css HTTP/1.1" 200 -
+112.10.201.218 - - [07/Mar/2024 07:51:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+117.136.111.2 - - [07/Mar/2024 08:19:17] "[32mGET / HTTP/1.1[0m" 302 -
+117.136.111.2 - - [07/Mar/2024 08:19:17] "GET /login/ HTTP/1.1" 200 -
+117.136.111.2 - - [07/Mar/2024 08:19:17] "GET /static/css/base.css HTTP/1.1" 200 -
+117.136.111.2 - - [07/Mar/2024 08:19:17] "GET /static/css/login.css HTTP/1.1" 200 -
+117.136.111.2 - - [07/Mar/2024 08:19:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.5.10 - - [07/Mar/2024 10:15:55] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:15:55] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:15:55] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:15:55] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:15:59] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [07/Mar/2024 10:15:59] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:15:59] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:15:59] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:20] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [07/Mar/2024 10:16:20] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:16:21] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:21] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:21] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:26] "POST /api/remove/ HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:16:26] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:16:26] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:26] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:26] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:37] "POST /api/mkdir/ HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:16:37] "GET / HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:16:37] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:37] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:37] "[36mGET /static/js/index.js HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:47] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+192.168.5.10 - - [07/Mar/2024 10:16:47] "GET /login/ HTTP/1.1" 200 -
+192.168.5.10 - - [07/Mar/2024 10:16:47] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+192.168.5.10 - - [07/Mar/2024 10:16:47] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -

@@ -9,7 +9,7 @@ import os
 USERNAME = 'admin'  # 登录用户名
 PASSWORD = '123456'  # 登录密码
 
-HOME_PATH = '/home/feather/file_manager_home'  # 文件管理的根目录
+HOME_PATH = '/home/guoyuh/projects/plantform'  # 文件管理的根目录
 
 # }
 

@@ -9,6 +9,9 @@
 
 {% block main %}
     <!--导航条-->
+    <div class="container-fluid">
+        <p><h1 style="text-align: center; font-weight: bold;">欢迎回来</h1></p>
+    </div>
     <nav class="navbar navbar-default" id="save_data"  data-path="{{ path }}">
         <div class="container-fluid">
             <!--首页-->
@@ -183,14 +186,29 @@
             <span class="list-group-item">
                 <span class="glyphicon glyphicon-file"></span>
                 <span class='path'>{{ file }}</span>
-
                 <ul class="nav navbar-nav navbar-right">
                     <li><span>{{ m_time }}</span></li>
                     <li class="btn-group-li"  data-path="{{ path+'/'+file }}">
                         <div class="btn-group btn-group-xs" role="group" >
+                            <!-- <a class="btn btn-default" href="{{ url_for('download', file=path+'/'+file) }}" title="download">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <a class="btn btn-default btn-view" href="{{ url_for('view', file=path+'/'+file) }}" title="view content">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a> -->
+                            
+                            {% if file.endswith('.txt') or file.endswith('.html') %}
                             <a class="btn btn-default" href="{{ url_for('download', file=path+'/'+file) }}" title="download">
                                 <span class="glyphicon glyphicon-download-alt"></span>
                             </a>
+                            <a class="btn btn-default btn-view" href="{{ url_for('view', file=path+'/'+file) }}" title="view content">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            {% else %}
+                            <a class="btn btn-default" href="{{ url_for('download', file=path+'/'+file) }}" title="download">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            {% endif %}
 
                             <button type="button" class="btn btn-default btn-rename" title="rename">
                                 <span class="glyphicon glyphicon-refresh"></span>

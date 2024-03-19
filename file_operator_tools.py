@@ -64,10 +64,15 @@ def get_abs_path(start, path):
     :param path: 相对路径
     :return: 如果path不在start下返回None， 反之返回其绝对路径
     """
+    print("start:",start)
+    print("path:",path)
     if start and path:
         # start 和 path 都不能为空
         start =  abspath(start)
+        print("start====>",start)
         abs_path = abspath(path)
+        print("abs_path====>",abs_path)
+        print(abs_path.startswith(start))
         if abs_path.startswith(start):
             return abs_path
     return None

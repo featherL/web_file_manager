@@ -11,4 +11,4 @@ import hook                     # 注册钩子
 from exts import app
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='192.168.6.182', port=9091, debug=True)
