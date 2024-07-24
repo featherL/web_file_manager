@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_manager.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sample Table</h1>
+        <table id="sampleTable">
+            <thead>
+                <tr>
+                    <th>正式样本名称</th>
+                    <th>项目编号</th>
+                    <th>客户姓名</th>
+                    <th>地区</th>
+                    <th>管壁实际名称</th>
+                    <th>物种</th>
+                    <th>样本类型</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in sample_data %}
+                <tr>
+                    <td contenteditable="true">{{ row['正式样本名称'] }}</td>
+                    <td contenteditable="true">{{ row['项目编号'] }}</td>
+                    <td contenteditable="true">{{ row['客户姓名'] }}</td>
+                    <td contenteditable="true">{{ row['地区'] }}</td>
+                    <td contenteditable="true">{{ row['管壁实际名称'] }}</td>
+                    <td contenteditable="true">{{ row['物种'] }}</td>
+                    <td contenteditable="true">{{ row['样本类型'] }}</td>
+                    <td><button class="deleteRowBtn">删除</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button id="addRowBtn">添加行</button>
+        <button id="saveBtn">保存</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/table_manager.js') }}"></script>
+</body>
+</html>

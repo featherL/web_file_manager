@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block head %}
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .header-buttons {
+            float: right; /* 将按钮组浮动到右侧 */
+        }
+        .header-buttons .btn {
+            margin-left: 10px; /* 为按钮添加左外边距 */
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="header-buttons">
+        <!-- 按钮与标题同行，位于右侧 -->
+        <a href="{{ url_for('new_user') }}" class="btn btn-primary">New User</a>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a>
+    </div>
+    <h1>All Users</h1>
+    <table>
+        <tr><th>Userid</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password_hash }}</td>
+                <td>{{ "Admin" if user.is_admin else "User" }}</td>
+                <!-- <td>
+                    <a href="{{ url_for('edit_user', user_id=user.id) }}">Edit</a>
+                    <a href="{{ url_for('delete_user', user_id=user.id) }}" onclick="return confirm('Are you sure you want to delete {{ user.username }}?')">Delete</a>
+                </td> -->
+                <td>
+                    <a href="{{ url_for('edit_user', user_id=user.id) }}">角色切换</a>|
+                    <a href="{{ url_for('delete_user', user_id=user.id) }}">删除</a>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

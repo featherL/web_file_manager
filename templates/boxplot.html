@@ -1,0 +1,152 @@
+{% extends "base_plot.html" %}
+
+<!-- {% block title %}Stacked Bar Plot{% endblock %} -->
+
+{% block heading %}{% endblock %}
+
+{% block content %}
+    <h2>Boxplot</h2>
+    <textarea id="data_input" rows="8" cols="60">Gene	Group	Expr
+A	zygote	0.8
+A	zygote	1.3
+A	zygote	1.4
+A	zygote	0.9
+A	zygote	1.9
+A	zygote	1.2
+A	2cell	8
+A	2cell	13
+A	2cell	14
+A	2cell	9
+A	2cell	19
+A	2cell	12
+A	4cell	3.2
+A	4cell	5.2
+A	4cell	5.6
+A	4cell	3.6
+A	4cell	7.6
+A	4cell	4.8
+B	zygote	0.8
+B	zygote	1.3
+B	zygote	1.4
+B	zygote	1.9
+B	zygote	1.2
+B	2cell	8
+B	2cell	13
+B	2cell	14
+B	2cell	9
+B	2cell	19
+B	2cell	12
+B	4cell	3.2
+B	4cell	5.2
+B	4cell	5.6
+B	4cell	3.6
+B	4cell	7.6
+B	4cell	4.8
+C	zygote	0.8
+C	zygote	1.3
+C	zygote	1.4
+C	zygote	1.9
+C	zygote	1.2
+C	2cell	8
+C	2cell	13
+C	2cell	14
+C	2cell	9
+C	2cell	19
+C	2cell	12
+C	4cell	3.2
+C	4cell	5.2
+C	4cell	5.6
+C	4cell	3.6
+C	4cell	7.6
+C	4cell	4.8
+D	zygote	0.8
+D	zygote	1.3
+D	zygote	1.4
+D	zygote	1.9
+D	zygote	1.2
+D	2cell	8
+D	2cell	13
+D	2cell	14
+D	2cell	9
+D	2cell	19
+D	2cell	12
+D	4cell	3.2
+D	4cell	5.2
+D	4cell	5.6
+D	4cell	3.6
+D	4cell	7.6
+D	4cell	4.8</textarea>
+    <br>
+    <input type="file" id="file_input">
+    <br>
+    <h4>Basic Parameters</h4>
+    <p>Image width (cm): <input type="number" id="image_width" name="image_width" min="1" step="1" value="10">
+    Image height (cm): <input type="number" id="image_height" name="image_height" min="1" step="1" value="7"></p>
+    <p>Title: <input type="text" id="title" value="boxplot"></p>
+    <p>X-axis Label: <input type="text" id="x_label" value="ID"></p>
+    <p>Y-axis Label: <input type="text" id="y_label" value="Expression Level"></p>
+    <p>Show Legend: <input type="checkbox" id="show_legend" name="show_legend" checked></p>
+    <p>X-axis Rotation: 
+        <select id="x_rotation">
+            <option value="0">0°</option>
+            <option value="45" selected>45°</option>
+            <option value="90">90°</option>
+        </select>
+    </p>
+    <button onclick="clearData()">Clear Data</button>
+    <button onclick="plotData('boxplot')">Run PLOT</button>
+    <br>
+    <img id="plot" src="" alt="Plot will be displayed here">
+    <br>
+    <a id="download_link" href="#" download="plot.png">Download</a>
+
+    <script>
+        document.getElementById('file_input').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                document.getElementById('data_input').value = event.target.result;
+            };
+            reader.readAsText(file);
+        });
+
+        // 清空textarea中的数据
+        function clearData() {
+            document.getElementById('data_input').value = '';
+        }
+
+        function plotData(tool) {
+            var data = document.getElementById('data_input').value;
+            var image_width = document.getElementById('image_width').value;
+            var image_height = document.getElementById('image_height').value;
+            var title = document.getElementById('title').value;
+            var x_label = document.getElementById('x_label').value;
+            var y_label = document.getElementById('y_label').value;
+            var show_legend = document.getElementById('show_legend').checked;
+            var x_rotation = document.getElementById('x_rotation').value;
+
+            fetch(`/plot/${tool}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: data,
+                    image_width: image_width,
+                    image_height: image_height,
+                    title: title,
+                    x_label: x_label,
+                    y_label: y_label,
+                    show_legend: show_legend,
+                    x_rotation: x_rotation
+                })
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                var url = URL.createObjectURL(blob);
+                document.getElementById('plot').src = url;
+                document.getElementById('download_link').href = url;
+            });
+        }
+    </script>
+{% endblock %}

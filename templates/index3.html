@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ username }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <!--导航条-->
+    <div class="container-fluid">
+        <p><h1 style="text-align: center; font-weight: bold;">欢迎回来</h1></p>
+    </div>
+    <nav class="navbar navbar-default" id="save_data"  data-path="{{ relative_path }}">
+        <div class="container-fluid">
+            <!--首页-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ url_for('index') }}" title="home"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+
+            <!--其他按钮-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                <!--新建文件夹-->
+                <li>
+                        <a data-toggle="modal"  role="button" data-target=".new-directory" title="new directory">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+
+                        <!-- 弹出层-->
+                        <div class="modal fade new-directory only-input" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" >input directory name</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <input type="text" class="form-control" placeholder="press enter" id="dir_name_input">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-default" id="new_dir_btn">ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+
+                <!--上传文件-->
+                {% if is_admin %}
+                <li>
+                    <a data-toggle="modal" role="button" data-target=".upload-file" title="upload file">
+                        <span class="glyphicon glyphicon-upload"></span>
+                    </a>
+
+                    <!-- 弹出层-->
+                        <div class="modal fade upload-file" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" >upload file</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <input type="file"multiple="multiple"  id="file_input">
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" id="upload_btn">upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+
+                <!--用户管理-->
+                <li>
+                    <a href="{{ url_for('view_users') }}" title="用户">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                    
+                </li>
+                {% endif %}
+
+                <li>
+                    <!-- 添加一个AI助手图标，点击即可打开对话框 -->
+                    <a href="#" title="AI助手" onclick="openChatDialog()">
+                        <span class="glyphicon glyphicon-comment"></span>
+                    </a>
+                
+                    <!-- AI对话框相关脚本 -->
+                    <script src="http://192.168.6.182:3000/js/iframe.js" id="chatbot-iframe"
+                            data-bot-src="http://192.168.6.182:3000/chat/share?shareId=mtgu889y95f929ako6e2hm7t"
+                            data-default-open="true"
+                            data-drag="true"
+                            data-open-icon="data:image/svg+xml;base64,PHN2ZyB0PSIxNjkwNTMyNzg1NjY0IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQxMzIiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNTEyIDMyQzI0Ny4wNCAzMiAzMiAyMjQgMzIgNDY0QTQxMC4yNCA0MTAuMjQgMCAwIDAgMTcyLjQ4IDc2OEwxNjAgOTY1LjEyYTI1LjI4IDI1LjI4IDAgMCAwIDM5LjA0IDIyLjRsMTY4LTExMkE1MjguNjQgNTI4LjY0IDAgMCAwIDUxMiA4OTZjMjY0Ljk2IDAgNDgwLTE5MiA0ODAtNDMyUzc3Ni45NiAzMiA1MTIgMzJ6IG0yNDQuOCA0MTZsLTM2MS42IDMwMS43NmExMi40OCAxMi40OCAwIDAgMS0xOS44NC0xMi40OGw1OS4yLTIzMy45MmgtMTYwYTEyLjQ4IDEyLjQ4IDAgMCAxLTcuMzYtMjMuMzZsMzYxLjYtMzAxLjc2YTEyLjQ4IDEyLjQ4IDAgMCAxIDE5Ljg0IDEyLjQ4bC01OS4yIDIzMy45MmgxNjBhMTIuNDggMTIuNDggMCAwIDEgOCAyMi4wOHoiIGZpbGw9IiM0ZTgzZmQiIHAtaWQ9IjQxMzMiPjwvcGF0aD48L3N2Zz4="
+                            data-close-icon="data:image/svg+xml;base64,PHN2ZyB0PSIxNjkwNTM1NDQxNTI2IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjYzNjciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNTEyIDEwMjRBNTEyIDUxMiAwIDEgMSA1MTIgMGE1MTIgNTEyIDAgMCAxIDAgMTAyNHpNMzA1Ljk1NjU3MSAzNzAuMzk1NDI5TDQ0Ny40ODggNTEyIDMwNS45NTY1NzEgNjUzLjYwNDU3MWE0NS41NjggNDUuNTY4IDAgMSAwIDY0LjQzODg1OCA2NC40Mzg4NThMNTEyIDU3Ni41MTJsMTQxLjYwNDU3MSAxNDEuNTMxNDI5YTQ1LjU2OCA0NS41NjggMCAwIDAgNjQuNDM4ODU4LTY0LjQzODg1OEw1NzYuNTEyIDUxMmwxNDEuNTMxNDI5LTE0MS42MDQ1NzFhNDUuNTY4IDQ1LjU2OCAwIDEgMC02NC40Mzg4NTgtNjQuNDM4ODU4TDUxMiA0NDcuNDg4IDM3MC4zOTU0MjkgMzA1Ljk1NjU3MWE0NS41NjggNDUuNTY4IDAgMCAwLTY0LjQzODg1OCA2NC40Mzg4NTh6IiBmaWxsPSIjNGU4M2ZkIiBwLWlkPSI2MzY4Ij48L3BhdGg+PC9zdmc+"
+                            defer></script>
+                
+                    <script>
+                        function openChatDialog() {
+                            // Assuming the iframe.js script exposes a function called initChatDialog
+                            // Replace 'initChatDialog' with the actual function name if different
+                            initChatDialog();
+                        }
+                
+                        console.log("Chat box loaded");
+                    </script>
+                </li>
+            </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ url_for('logout') }}" title="logout">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                        </a>
+                        <span style="color: #333; display: inline-block; margin-left: 10px;">
+                            退出
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 路径导航 -->
+    <ol class="breadcrumb">
+            {% for rel_path, base_name in rel_levels %}
+                {% if rel_path == "/" %}
+                    <li><a href="{{ url_for('index') }}">{{ base_name }}</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('index', path=rel_path) }}">{{ base_name }}</a></li>
+                {% endif %}
+            {% endfor %}
+    </ol>
+
+
+    <!--用于重命名的交互窗口-->
+    <div class="modal fade only-input" tabindex="-1" role="dialog" id="rename_modal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" >input name</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="press enter" id="rename_input">
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" id="rename_btn">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--用于复制移动的交互窗口-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="cp_mv_modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="dst_selected">select destination</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row pre-scrollable">
+                        <div class="list-group">
+                            <button class="list-group-item" id="home_item" data-dst="{{ home_path }}" data-status="unload">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                                <span class="path">{{ home_name }}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="cp_mv_btn">ok</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--文件名和目录名-->
+    <div class="list">
+        <div class="list-group">
+            <!-- 遍历目录 -->
+            {% for dir, m_time in dirs %}
+            <a href="{{ url_for('index', path=rel_path ~ '/' ~ dir) }}" class="list-group-item item-dir">
+                <span class="glyphicon glyphicon-folder-open"></span>
+                <span class='path'>{{ dir }}</span>
+
+                <!-- 操作按钮组 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span>{{ m_time }}</span></li>
+                    <!-- 绑定操作按钮到对应的目录 -->
+                    <li class="btn-group-li" data-path="{{ rel_path ~ '/' ~ dir }}">
+                        <div class="btn-group btn-group-xs" role="group">
+                            <button type="button" class="btn btn-default btn-rename" title="rename">
+                                <span class="glyphicon glyphicon-refresh"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-move" title="move">
+                                <span class="glyphicon glyphicon-move"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-copy" title="copy">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-remove" title="remove" data-path="{{ rel_path ~ '/' ~ dir }}">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </a>
+            {% endfor %}
+
+            <!-- 遍历文件 -->
+            {% for file, m_time in files %}
+            <span class="list-group-item">
+                <span class="glyphicon glyphicon-file"></span>
+                <span class='path'>{{ file }}</span>
+                <!-- 文件操作按钮组 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span>{{ m_time }}</span></li>
+                    <li class="btn-group-li" data-path="{{ rel_path ~ '/' ~ file }}">
+                        <div class="btn-group btn-group-xs" role="group">
+                            {% if file.endswith('.txt') or file.endswith('.html') %}
+                            <!-- 文本和HTML文件提供下载和查看 -->
+                            <a class="btn btn-default" href="{{ url_for('download', file=rel_path ~ '/' ~ file) }}" title="download">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <a class="btn btn-default btn-view" href="{{ url_for('view', file=rel_path ~ '/' ~ file) }}" title="view content">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            {% else %}
+                            <!-- 其他文件提供下载 -->
+                            <a class="btn btn-default" href="{{ url_for('download', file=rel_path ~ '/' ~ file) }}" title="download">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            {% endif %}
+
+                            <!-- 其他操作按钮 -->
+                            <button type="button" class="btn btn-default btn-rename" title="rename">
+                                <span class="glyphicon glyphicon-refresh"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-move" title="move">
+                                <span class="glyphicon glyphicon-move"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-copy" title="copy">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-remove" title="remove" data-path="{{ rel_path ~ '/' ~ file }}">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

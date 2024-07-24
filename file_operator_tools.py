@@ -56,22 +56,64 @@ def get_levels(start, path):
 
     return levels[ : : -1]  # 返回反转后的列表
 
+def get_relative_levels(user_path, abs_levels):
+    """
+    根据绝对路径层级信息，计算相对路径层级信息。
+    
+    :param user_path: 用户根目录的绝对路径。
+    :param abs_levels: 包含绝对路径层级信息的列表，每个元素为一个元组，形如(绝对路径, 显示名称)。
+    :return: 包含相对路径层级信息的列表，每个元素为一个元组，形如(相对路径, 显示名称)。
+    """
+    rel_levels = []
+    for abs_path, display_name in abs_levels:
+        if abs_path == user_path:
+            # 特殊处理根目录的情况
+            rel_levels.append(('/', display_name))
+        else:
+            # 计算相对于根目录的相对路径
+            rel_path = os.path.relpath(abs_path, user_path)
+            rel_levels.append((rel_path, display_name))
+    
+    return rel_levels
+
+
+# def get_abs_path(start, path):
+#     """
+#     获取path的绝对路径,
+#     :param start: 根目录
+#     :param path: 相对路径
+#     :return: 如果path不在start下返回None， 反之返回其绝对路径
+#     """
+#     print("传入的start:start:",start)
+#     print("传入的path::",path)
+#     if start and path:
+#         # start 和 path 都不能为空
+#         start =  abspath(start)
+#         print("start====>",start)
+#         abs_path = abspath(path)
+#         print("abs_path====>",abs_path)
+#         print(abs_path.startswith(start))
+#         if abs_path.startswith(start):
+#             return abs_path
+#     return None
 
 def get_abs_path(start, path):
     """
     获取path的绝对路径,
     :param start: 根目录
     :param path: 相对路径
-    :return: 如果path不在start下返回None， 反之返回其绝对路径
+    :return: 如果path是start的有效子路径，返回其绝对路径；否则返回None
     """
-    print("start:",start)
-    print("path:",path)
+    print("传入的start:", start)
+    print("传入的path:", path)
     if start and path:
-        # start 和 path 都不能为空
-        start =  abspath(start)
-        print("start====>",start)
-        abs_path = abspath(path)
-        print("abs_path====>",abs_path)
+        start = os.path.abspath(start)
+        if path:  # 确保path不为空
+            abs_path = os.path.abspath(os.path.join(start, path))
+        else:
+            # 如果path为空，直接使用start作为绝对路径
+            abs_path = start
+        print("abs_path====>", abs_path)
         print(abs_path.startswith(start))
         if abs_path.startswith(start):
             return abs_path
@@ -79,3 +121,13 @@ def get_abs_path(start, path):
 
 
 
+def get_rel_path(start, path):
+    """
+    获取相对于起始目录的路径
+    :param start: 起始目录的绝对路径
+    :param path: 绝对路径
+    :return: 相对于起始目录的路径
+    """
+    start = os.path.abspath(start)
+    path = os.path.abspath(path)
+    return os.path.relpath(path, start)

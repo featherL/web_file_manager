@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_manager.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Table Manager</h1>
+        <button id="createTableBtn">Create New Table</button>
+        <div id="tableContainer"></div>
+    </div>
+
+    <!-- 表格列表 -->
+    <div class="table-list">
+        <h2>Tables</h2>
+        <ul class="list-group">
+            <!-- 遍历表格列表 -->
+            {% for table in tables %}
+            <li class="list-group-item" data-table-id="{{ table.id }}">{{ table.name }}</li>
+            {% endfor %}
+        </ul>
+        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#createTableModal">Create New Table</button> -->
+    </div>
+
+    <!-- New Table Modal -->
+    <div id="newTableModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Table</h2>
+            <input type="text" id="newTableName" placeholder="Enter table name">
+            <button id="saveTableBtn">Save</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/table_manager.js') }}"></script>
+</body>
+</html>

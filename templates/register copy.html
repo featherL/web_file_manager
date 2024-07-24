@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}注册{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+{% block main %}
+    <form action="" method="post">
+        <h2>注册页面</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="用户名" name="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="密码" name="password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">注册</button>
+            </div>
+            {% if error %}
+                <div class="form-control-static">
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+{% endblock %}

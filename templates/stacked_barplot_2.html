@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plotting Tool</title>
+</head>
+<body>
+<td valign="top" align="center">
+<p>
+Program
+<select name="PROGRAM" id="program">
+<option value="stacked_barplot_matplotlib" selected="">Stacked Barplot (Matplotlib)</option>
+<option value="stacked_barplot_ggplot">Stacked Barplot (ggplot2)</option>
+</select><br>
+Please choose suitable format and paste your data matrix below (tab separated text file) <u>long_data_matrix</u> format<br>
+<textarea name="long_data_matrix" id="long_data_matrix" rows="8" cols="60"></textarea>
+<br>
+Or load it from disk
+<input name="SEQFILE" type="file" id="file_input">
+<br>
+<h4>Picture attributes</h4>
+<p>Image width (cm): <input type="number" id="image_width" name="image_width" min="1" step="1" value="10">
+Image height (cm): <input type="number" id="image_height" name="image_height" min="1" step="1" value="7">
+</p>
+
+<h4>Additional Parameters</h4>
+<p>X-axis Label: <input type="text" id="x_label" value="ID"></p>
+<p>Y-axis Label: <input type="text" id="y_label" value="Expression Level"></p>
+<p>Legend Label: <input type="text" id="legend_label" value="Gene"></p>
+<p>X-axis Text Rotation:
+<select id="x_rotation">
+<option value="0">0°</option>
+<option value="45" selected>45°</option>
+<option value="90">90°</option>
+</select>
+</p>
+
+<br>
+<br>
+<input name="button" type="button" onclick="clearData()" value="Clear long_data_matrix">
+<input name="submit" type="button" value="Run PLOT" onclick="plotData()">
+</p>
+<p>
+<img id="plot" src="" alt="Plot will be displayed here"><br>
+<a id="download_link" href="#" download="plot.png">Download</a>
+</p>
+</td>
+<script>
+function clearData() {
+    document.getElementById('long_data_matrix').value = '';
+    document.getElementById('file_input').value = '';
+}
+
+function plotData() {
+    var data = document.getElementById('long_data_matrix').value;
+    var program = document.getElementById('program').value;
+    var image_width = document.getElementById('image_width').value;
+    var image_height = document.getElementById('image_height').value;
+    var x_label = document.getElementById('x_label').value;
+    var y_label = document.getElementById('y_label').value;
+    var legend_label = document.getElementById('legend_label').value;
+    var x_rotation = document.getElementById('x_rotation').value;
+
+    fetch('/plot', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            data: data,
+            program: program,
+            image_width: image_width,
+            image_height: image_height,
+            x_label: x_label,
+            y_label: y_label,
+            legend_label: legend_label,
+            x_rotation: x_rotation
+        })
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        var url = URL.createObjectURL(blob);
+        document.getElementById('plot').src = url;
+        document.getElementById('download_link').href = url;
+    });
+}
+
+document.getElementById('file_input').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        document.getElementById('long_data_matrix').value = event.target.result;
+    };
+    reader.readAsText(file);
+});
+</script>
+</body>
+</html>

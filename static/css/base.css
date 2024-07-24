@@ -1,10 +1,19 @@
-body{
+/* body{
     background: #f3f3f3;
+} */
+
+body {
+    background-image: url("/static/img/home-main-back.5b7e7566.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
+
 
 .main{
     background: #fff;
-    width: 1000px;
+    width: 66%;
     margin: 50px auto;
     overflow: hidden;
     padding: 10px
@@ -15,3 +24,6 @@ body{
     right: 50px;
     bottom: 50px;
 }
+
+
+

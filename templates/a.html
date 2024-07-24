@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <td valign="top" align="center">
+        <table cellspacing="0" cellpadding="12" width="80%" border="0">
+          <tbody>
+          <tr>
+            <td align="left">
+    <p><br>
+    <font class="pageheader">Search the database</font><br><br></p>
+<form id="simple_search" action="/cgi-bin/VFs/search.cgi" method="POST" enctype="multipart/form-data">
+<table>
+    <tbody><tr><td></td><td colspan="3"><font class="title">Simple text search</font></td></tr>
+    <tr><td><img src="images/space.gif" width="20" height="1"></td>
+        <td width="50">
+            Query: </td>
+        <td colspan="2" width="800"><input id="q" name="q" type="text" value="" size="60"></td>
+    </tr>
+<tr><td colspan="2"></td>
+<td colspan="2">
+    Note: the search engine will scan <u>bacteria description</u>, <u>VF information</u> and <u>gene/product</u> <b>simultaneously</b>.<br>
+    Examples:<br>
+    <img src="images/space.gif" width="70" height="1">
+    <b>Gram-negative</b> - query for specific bacterial characteristics;<br>
+    <img src="images/space.gif" width="70" height="1">
+    <b>meningitis</b> - query for any related diseases;<br>
+    <img src="images/space.gif" width="70" height="1">
+    <b>intimin</b> - query for any key words of VFs;<br>
+    <img src="images/space.gif" width="70" height="1">
+    <b>vgrG</b> - query for any VF-related genes;<br>
+    <img src="images/space.gif" width="70" height="1">
+    <b>haemoglobin</b> - query for any key words of gene product.<br>
+</td>
+</tr>
+<tr><td colspan="4">&nbsp;</td></tr>
+<tr aligh="right"><td></td>
+<td colspan="3">
+<input id="reset_button" type="reset" value="Clear" size="20">
+<input id="submit_button" type="submit" value="Search" size="20">
+</td>
+</tr>
+</tbody></table>
+</form>
+<br><br>
+                          <table>
+                            <tbody>
+                <tr><td><img src="images/space.gif" width="20" height="1"></td>
+                                <td><form name="MainBlastForm" action="/cgi-bin/VFs/blast/blast.cgi" method="post" enctype="multipart/form-data">
+    <font class="title">BLAST sequence-similarity search</font>
+                                    <p>
+                    Database
+                                        <select onchange="setprogram(this.selectedIndex, this, this.form);" name="DATALIB">
+<option value="setA.ffn"> DNA sequences from VFDB core dataset (setA)
+</option><option value="setA.faa" selected=""> Protein sequences from VFDB core dataset (setA)
+</option><option value="setB.ffn"> DNA sequences from VFDB full dataset (setB)
+</option><option value="setB.faa"> Protein sequences from VFDB full dataset (setB)
+                                        </option></select>
+                        Program
+                                        <select name="PROGRAM">
+                                          <option selected="">blastp
+                                                </option><option>blastx
+                      </option></select><br>
+                      Enter sequence below in <u>FASTA</u> format<br>
+                                        <textarea name="SEQUENCE" rows="8" cols="60"></textarea>
+                                      <br>
+                                      Or 
+                                      load it from disk
+                                      <input name="SEQFILE" type="file">
+                                      <br>
+                                      Set subsequence: 
+                                      From
+                                      <input size="10" name="QUERY_FROM">
+                                      To
+                                      <input size="10" name="QUERY_TO">
+                                      <br>
+                                      <input name="button" type="button" onclick="MainBlastForm.SEQUENCE.value='';MainBlastForm.QUERY_FROM.value='';MainBlastForm.QUERY_TO.value='';MainBlastForm.SEQUENCE.focus();" value="Clear sequence">
+                                      <input name="submit" type="submit" value="Run BLAST">
+                                    </p>
+                                  <p>
+                  <b>Advanced settings:</b><br>
+                      Filter
+                                        <input type="checkbox" checked="" value="L" name="FILTER">
+                                    Low complexity
+                                    <input type="checkbox" value="m" name="FILTER">
+                                    Mask for lookup table only <br>
+                Expect
+                                    <select name="EXPECT">
+                                      <option>0.00001
+                                      </option><option>0.0001
+                                      </option><option>0.001
+                                        </option><option selected="">0.01
+                                      </option><option>0.1
+                                          </option><option>1
+                                            </option><option>10
+                                    </option></select>
+                                    <img src="images/space.gif" width="10" height="1"> Matrix
+                                    <select name="MAT_PARAM">
+                                      <option value="PAM30	 9	 1">PAM30</option>
+                                      <option value="PAM70	 10	 1">PAM70</option>
+                                      <option value="BLOSUM80	 10	 1">BLOSUM80</option>
+                                      <option value="BLOSUM62	 11	 1" selected="">BLOSUM62</option>
+                                      <option value="BLOSUM45	 14	 2">BLOSUM45</option>
+  </select><br>
+                Frame 
+                                      shift penalty for blastx
+                                    <select name="OOF_ALIGN">
+                      <option>6
+                        </option><option>7
+                          </option><option>8
+                            </option><option>9
+                              </option><option>10
+                                </option><option>11
+                                  </option><option>12
+                                    </option><option>13
+                                      </option><option>14
+                                        </option><option>15
+                                          </option><option>16
+                                            </option><option>17
+                                              </option><option>18
+                                                </option><option>19
+                                                  </option><option>20
+                                                  </option><option>25
+                                                  </option><option>30
+                                                  </option><option>50
+                                                  </option><option>1000
+                                                  </option><option value="0" selected="">No OOF</option>
+                                    </select>
+                                    <br>
+                Other 
+                                      advanced options:
+                    <input size="67" name="OTHER_ADVANCED"></p>
+        <p><input type="checkbox" checked="" name="OVERVIEW">
+        Graphical Overview <img src="images/space.gif" width="98" height="1">
+    Alignment view
+                    <select name="ALIGNMENT_VIEW">
+                      <option value="0" selected="">Pairwise
+                        </option><option value="1">master-slave with 
+                          identities
+                          </option><option value="2">master-slave without identities
+                            </option><option value="3">flat master-slave with identities
+                              </option><option value="4">flat 
+                                master-slave without identities
+                                </option><option value="7">BLAST XML
+                                  </option><option value="9">Hit Table</option>
+                    </select>
+                    <br>
+        Descriptions
+                    <select name="DESCRIPTIONS">
+                      <option>0
+                        </option><option selected="">10
+                          </option><option>50
+                            </option><option>100
+                              </option><option>250
+                                </option><option>500</option>
+                    </select>
+                                    <img src="images/space.gif" width="10" height="1">
+    Alignments
+                    <select name="ALIGNMENTS">
+                      <option>0
+                        </option><option selected="">10
+            </option><option>50
+                            </option><option>100
+                              </option><option>250
+                                </option><option>500</option>
+                    </select>
+                                    <img src="images/space.gif" width="10" height="10">
+                                    </p>
+                                  <input name="button" type="button" onclick="MainBlastForm.SEQUENCE.value='';MainBlastForm.SEQFILE.value='';MainBlastForm.SEQUENCE.focus();" value="Clear sequence">
+                                    <input name="submit" type="submit" value="Run BLAST">
+                                </form></td>
+                              </tr>
+                            </tbody>
+                          </table>
+</td></tr></tbody></table></td>
+</body>
+</html>

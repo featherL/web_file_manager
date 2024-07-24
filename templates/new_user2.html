@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Create New User</h2>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+        
+        <label>
+            <input type="checkbox" id="is_admin" name="is_admin">
+            Is Admin?
+        </label>
+        
+        <button type="submit">Create User</button>
+    </form>
+
+{% endblock %}

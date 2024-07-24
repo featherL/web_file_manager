@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_manager.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Table Manager</h1>
+        <button id="createTableBtn">Create New Table</button>
+        <div id="tableContainer"></div>
+    </div>
+
+    <!-- 表格列表 -->
+    <div class="table-list">
+        <h2>Tables</h2>
+        <ul class="list-group">
+            <!-- 遍历表格列表 -->
+            {% for table in tables %}
+            <li class="list-group-item" data-table-id="{{ table.id }}">{{ table.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Sample Table -->
+    <div class="sample-table">
+        <h2>Sample Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>正式样本名称</th>
+                    <th>项目编号</th>
+                    <th>客户姓名</th>
+                    <th>地区</th>
+                    <th>管壁实际名称</th>
+                    <th>物种</th>
+                    <th>样本类型</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in sample_data %}
+                <tr>
+                    <td contenteditable="true">{{ row['正式样本名称'] }}</td>
+                    <td contenteditable="true">{{ row['项目编号'] }}</td>
+                    <td contenteditable="true">{{ row['客户姓名'] }}</td>
+                    <td contenteditable="true">{{ row['地区'] }}</td>
+                    <td contenteditable="true">{{ row['管壁实际名称'] }}</td>
+                    <td contenteditable="true">{{ row['物种'] }}</td>
+                    <td contenteditable="true">{{ row['样本类型'] }}</td>
+                    <td>
+                        <button class="deleteRowBtn">删除</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button id="addRowBtn">添加行</button>
+    </div>
+
+    <!-- New Table Modal -->
+    <div id="newTableModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Table</h2>
+            <input type="text" id="newTableName" placeholder="Enter table name">
+            <button id="saveTableBtn">Save</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/table_manager.js') }}"></script>
+</body>
+</html>

@@ -1,17 +1,45 @@
-.form-container{
+.form-container {
     width: 50%;
     margin: 0 auto;
     text-align: right;
 }
 
-.main h2{
+.main h2 {
     text-align: center;
     margin: 30px 0;
 }
 
-.form-control-static p{
+.form-control-static p {
     color: red;
     text-align: center;
     font-size: 16px;
-    font-weight:700;
+    font-weight: 700;
+}
+
+.form-group {
+    position: relative;
+}
+
+
+.fr {
+    float: left;
+    color: #3219be;
+    font-size: 14px;
+}
+
+.btn-container {
+    text-align: center; /* 登录按钮居中 */
+}
+
+.btn-default {
+    margin-right: 0; /* 去掉默认右边距 */
+    text-align: center;
+}
+
+.btn-right {
+    float: right; /* 右浮动，使按钮靠右 */
+}
+
+.btn-left {
+    float: left; /* 左浮动，使按钮靠左 */
 }

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}注册{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block main %}
+    <form action="" method="post">
+        <h2 style="text-align: center;">注册</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="用户名不能有中文以及.*?空格" name="username">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="邮件" name="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="密码(密码最小6位)" name="password">
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="确认密码" name="confirm_password">
+            </div>
+            <div id="message"></div> <!-- 用于显示密码一致性信息 -->
+
+            <div class="form-group btn-container">
+                <button class="btn btn-default" type="submit">注册</button>
+            </div>
+
+            {% if error %}
+                <div class="form-control-static">
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const password = document.querySelector('input[name="password"]');
+            const confirm_password = document.querySelector('input[name="confirm_password"]');
+            const message = document.getElementById("message");
+        
+            confirm_password.addEventListener('keyup', function () {
+                if (password.value !== confirm_password.value) {
+                    message.textContent = "两次密码不一致";
+                    message.style.color = "red";
+                } else {
+                    message.textContent = "密码一致";
+                    message.style.color = "green";
+                }
+            });
+        });
+        </script>
+{% endblock %}

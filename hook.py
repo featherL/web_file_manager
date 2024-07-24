@@ -10,6 +10,7 @@ from user_config import HOME_PATH, HOME_NAME
 @app.before_request
 def set_session():
     g.username = session.get('username')
+    g.user_id = session.get('user_id')
     # g.username = 'feather'   # debug
 
 

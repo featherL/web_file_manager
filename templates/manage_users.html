@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+</head>
+<body>
+    <h1>User Management</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Is Admin</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.is_admin }}</td>
+            <td>
+                <a href="{{ url_for('set_admin', user_id=user.id) }}">Set Admin</a>
+                <a href="{{ url_for('edit_user', user_id=user.id) }}">Edit</a>
+                <a href="{{ url_for('delete_user', user_id=user.id) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<td valign="top" align="center">
+<p>
+Program
+<select name="PROGRAM">
+<option selected="">barplot
+</option><option>boxplot
+</option></select><br>Please choose suitable format and paste your data matrix below (tab separated text file) <u>long_data_matrix</u> format<br>
+<textarea name="long_data_matrix" rows="8" cols="60"></textarea>
+<br>
+Or load it from disk
+<input name="SEQFILE" type="file">
+<br>
+<input name="button" type="button" onclick="MainBlastForm.long_data_matrix.value='';MainBlastForm.QUERY_FROM.value='';MainBlastForm.QUERY_TO.value='';MainBlastForm.SEQUENCE.focus();" value="Clear long_data_matrix">
+<input name="submit" type="submit" value="Run PLOT">
+</p>
+<p>
+</td>
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% block main %}
+<h2 style="text-align: center;">创建用户</h2>
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+<form method="POST" style="width: 300px; margin: auto; text-align: left;">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required style="display: block; width: 100%; margin-bottom: 10px;">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required style="display: block; width: 100%; margin-bottom: 10px;">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required style="display: block; width: 100%; margin-bottom: 10px;">
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required style="display: block; width: 100%; margin-bottom: 10px;">
+    
+    <label style="display: block;">
+        <input type="checkbox" id="is_admin" name="is_admin" value="on" style="display: inline-block; vertical-align: middle;">
+        Admin
+    </label>
+    
+    <button type="submit" style="display: block; width: 100%; margin-top: 10px;">Create User</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ username }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <!--导航条-->
+    <div class="container-fluid">
+        <p><h1 style="text-align: center; font-weight: bold;">欢迎回来</h1></p>
+    </div>
+    <nav class="navbar navbar-default" id="save_data"  data-path="{{ home_path }}">
+        <div class="container-fluid">
+            <!--首页-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ url_for('index') }}" title="home"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+
+            <!--其他按钮-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                <!--新建文件夹-->
+                <li>
+
+                        <a data-toggle="modal"  role="button" data-target=".new-directory" title="new directory">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+
+                        <!-- 弹出层-->
+                        <div class="modal fade new-directory only-input" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" >input directory name</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <input type="text" class="form-control" placeholder="press enter" id="dir_name_input">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-default" id="new_dir_btn">ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+
+                <!--上传文件-->
+                <li>
+                    <a data-toggle="modal" role="button" data-target=".upload-file" title="upload file">
+                        <span class="glyphicon glyphicon-upload"></span>
+                    </a>
+
+                    <!-- 弹出层-->
+                        <div class="modal fade upload-file" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" >upload file</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <input type="file"multiple="multiple"  id="file_input">
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" id="upload_btn">upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+                <li>
+                    <a href="{{ url_for('view_users') }}" title="用户">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </li>
+            </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ url_for('logout') }}" title="logout">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                        </a>
+                        <span style="color: #333; display: inline-block; margin-left: 10px;">
+                            退出
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 路径导航 -->
+    <ol class="breadcrumb">
+            {% for full_path, base_name in levels %}
+            <li><a href="{{ url_for('index', path=full_path) }}">{{ base_name }}</a></li>
+            {% endfor %}
+    </ol>
+
+    <!--用于重命名的交互窗口-->
+    <div class="modal fade only-input" tabindex="-1" role="dialog" id="rename_modal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" >input name</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="press enter" id="rename_input">
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" id="rename_btn">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--用于复制移动的交互窗口-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="cp_mv_modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="dst_selected">select destination</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row pre-scrollable">
+                        <div class="list-group">
+                            <button class="list-group-item" id="home_item" data-dst="{{ home_path }}" data-status="unload">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                                <span class="path">{{ home_name }}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="cp_mv_btn">ok</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--文件名和目录名-->
+    <div class="list">
+        <div class="list-group">
+            {% for dir, m_time in dirs %}
+            <a href="{{ url_for('index', path=rel_path ~ '/' ~ dir) }}" class="list-group-item item-dir">
+                <span class="glyphicon glyphicon-folder-open"></span>
+                <span class='path'>{{ dir }}</span>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span>{{ m_time }}</span></li>
+                    <li class="btn-group-li" data-path="{{ rel_path }}/{{ file }}">
+                        <div class="btn-group btn-group-xs" role="group">
+
+                            <button type="button" class="btn btn-default btn-rename" title="rename">
+                                <span class="glyphicon glyphicon-refresh"></span>
+                            </button>
+
+                            <button type="button" class="btn btn-default btn-move" title="move">
+                                <span class="glyphicon glyphicon-move"></span>
+                            </button>
+
+                            <button type="button" class="btn btn-default btn-copy" title="copy">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </button>
+
+                            <button type="button" class="btn btn-default btn-remove" title="remove">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </a>
+            {% endfor %}
+
+            {% for file, m_time in files %}
+            <span class="list-group-item">
+                <span class="glyphicon glyphicon-file"></span>
+                <span class='path'>{{ file }}</span>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span>{{ m_time }}</span></li>
+                    <li class="btn-group-li"  data-path="{{ rel_path }}/{{ file }}">
+                        <div class="btn-group btn-group-xs" role="group" >
+
+                            {% if file.endswith('.txt') or file.endswith('.html') %}
+                            <a class="btn btn-default" href="{{ url_for('download', file=rel_path+'/'+file) }}" title="download">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            <a class="btn btn-default btn-view" href="{{ url_for('view', file=rel_path+'/'+file) }}" title="view content">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            {% else %}
+                            <a class="btn btn-default" href="{{ url_for('download', file=rel_path+'/'+file) }}" title="download">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                            </a>
+                            {% endif %}
+
+                            <button type="button" class="btn btn-default btn-rename" title="rename">
+                                <span class="glyphicon glyphicon-refresh"></span>
+                            </button>
+
+                            <button type="button" class="btn btn-default btn-move" title="move">
+                                <span class="glyphicon glyphicon-move"></span>
+                            </button>
+
+                            <button type="button" class="btn btn-default btn-copy" title="copy">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </button>
+
+                            <button type="button" class="btn btn-default btn-remove" title="remove">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+
+                        </div>
+                    </li>
+                </ul>
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
