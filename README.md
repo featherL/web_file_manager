@@ -22,4 +22,8 @@
   ![image](https://github.com/featherL/web_file_manager/raw/master/screenshots/upload.png)
 + 点击文件右端的复制按钮(**鼠标停留在按钮上有提示**)
   ![image](https://github.com/featherL/web_file_manager/raw/master/screenshots/copy.png)
++ 画图工具
+  ![image](https://github.com/featherL/web_file_manager/raw/master/screenshots/img_tools.png)
++ stackplot
+  ![image](https://github.com/featherL/web_file_manager/raw/master/screenshots/stackplot.png)
 + ......
